@@ -4,9 +4,10 @@
 #ifndef SignInWithApple_h
 #define SignInWithApple_h
 
-@interface SignInWithApple : CDVPlugin
+@interface SignInWithApple : CDVPlugin <ASAuthorizationControllerDelegate>
 - (void)pluginInitialize;
-- (NSArray<ASAuthorizationScope> *)convertScopes:(NSArray<NSNumber *> *)scopes;
+- (NSArray<ASAuthorizationScope> *)convertScopes:(NSArray<NSNumber *> *)scopes API_AVAILABLE(ios(13.0));
+- (void)isAvailable(CDVInvokedUrlCommand *)command;
 - (void)signin:(CDVInvokedUrlCommand *)command;
 @end
 
